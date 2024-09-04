@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crawler Statistics Dashboard</title>
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .stat {
+            margin-bottom: 20px;
+        }
+        .stat h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .stat p {
+            font-size: 1.2em;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Crawler Statistics Dashboard</h1>
+    <div class="stat">
+        <h2>Total FQDNs Crawled</h2>
+        <p>{{ total_fqdns_crawled }}</p>
+    </div>
+    <div class="stat">
+        <h2>Total URLs to Crawl</h2>
+        <p>{{ total_urls_to_crawl }}</p>
+    </div>
+    <div class="stat">
+        <h2>Crawling Progress</h2>
+        <p>{{ crawling_progress }}%</p>
+    </div>
+    <div class="stat">
+        <h2>Most Common Words</h2>
+        <ul>
+            {% for word in most_common_words %}
+            <li>{{ word.0 }} ({{ word.1 }} times)</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

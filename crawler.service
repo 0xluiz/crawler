@@ -1,0 +1,13 @@
+[Unit]
+Description=Crawler Service
+After=network.target
+
+[Service]
+ExecStart=/path/to/your/venv/bin/python /path/to/your/crawler_script.py
+WorkingDirectory=/path/to/your/crawler_directory
+Restart=always
+User=your_user
+Group=your_group
+
+[Install]
+WantedBy=multi-user.target

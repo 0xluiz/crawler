@@ -1,0 +1,13 @@
+[Unit]
+Description=Django Application Service
+After=network.target
+
+[Service]
+User=your_user
+Group=your_group
+WorkingDirectory=/path/to/your/django_project
+ExecStart=/path/to/your/venv/bin/gunicorn --workers 3 --bind unix:/tmp/django.sock crawler_dashboard.wsgi:application
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
